@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title>Music Player</title>
+		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	</head>
+
+	<body>
+
+		<div id="top-select">
+			<h1 id="mClick">Music</h1><h1 id="vClick">Videos</h1>
+		</div>
+		<div id="main" class="row">
+
+			<div id="music" class="col-md-6">
+				<div id="labels" class="row">
+					<div id="artist" class="col-md-4">
+						<h2>Artist</h2>
+					</div>
+					<div id="song" class="col-md-4">
+						<h2>Song</h2>
+					</div>
+					<div id="album" class="col-md-4">
+						<h2>Album</h2>
+					</div>
+				</div>
+				<div id="musicSelection" ng-controller="">
+						<div class="musicItem row" ng-repeat>
+							<div class="col-md-4">
+								{{artist}}
+							</div>
+							<div class="col-md-4">
+								{{song}}
+							</div>
+							<div class="col-md-4">
+								{{album}}
+							</div>
+						</div>
+					</div>
+			</div>
+
+			<div id="video">
+				<div id="labels" class="row">
+					<div id="video" class="col-md-12">
+						<h2>Video</h2>
+					</div>
+				</div>
+					<div id="videoSelection" ng-controller="">
+						<div class="videoItem row" ng-repeat>
+							<div class="col-md-12 musicItem">
+								{{VideoItem}}
+							</div>
+						</div>
+					</div>
+				</div>
+<!--
+				<div id="player" class="col-md-6">
+				<div id="mainP">
+				</div>
+				<div id="controls" class="row">
+					<div id="backButton" class="col-md-3">
+					</div>
+					<div id="playPause" class="col-md-6">
+					</div>
+					<div id="fwdButton" class="col-md-3">
+					</div>
+				</div>
+				<div id="volume">
+				</div>
+			</div>
+-->
+			</div>
+			<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+			<script src="js/main.js"></script>
+		</div>
+
+	</body>
+
+</html>
