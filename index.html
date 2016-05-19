@@ -10,8 +10,10 @@
 
 	<body>
 
-		<div id="top-select">
-			<h1 id="mClick">Music</h1><h1 id="vClick">Videos</h1>
+		<div id="top-select" class="row">
+			<div id="mClick" class="col-md-5"><h1>Music</h1></div>
+			<div id="vClick" class="col-md-5"><h1>Videos</h1></div>
+			<div id="settings" class="col-md-2">Settings</div>
 		</div>
 		<div id="main" class="row">
 
@@ -44,9 +46,7 @@
 
 			<div id="video">
 				<div id="labels" class="row">
-					<div id="video" class="col-md-12">
-						<h2>Video</h2>
-					</div>
+						<h2>Title</h2>
 				</div>
 					<div id="videoSelection" ng-controller="">
 						<div class="videoItem row" ng-repeat>
@@ -56,22 +56,26 @@
 						</div>
 					</div>
 				</div>
-<!--
+
 				<div id="player" class="col-md-6">
 				<div id="mainP">
 				</div>
 				<div id="controls" class="row">
 					<div id="backButton" class="col-md-3">
+						Back
 					</div>
 					<div id="playPause" class="col-md-6">
+						Play/pause
 					</div>
 					<div id="fwdButton" class="col-md-3">
+						forward
 					</div>
 				</div>
 				<div id="volume">
+					Volume Slider
 				</div>
 			</div>
--->
+
 			</div>
 			<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
 			<script src="js/main.js"></script>

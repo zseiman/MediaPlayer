@@ -14,13 +14,7 @@ html, body{
 	background-color:#777;
 	width:100%;
 	height:20%;
-}
-
-#top-select h1{
-	position:inline-block;
-	float:left;
-	font-size:6em;
-	margin-right:200px;
+	margin:0;
 }
 
 #main{
@@ -36,20 +30,22 @@ html, body{
 	padding:0;
 }
 
-#video{
-	z-index:0;
-	width:50%;
-	height:100%;
-	-moz-transform:rotateX(180deg);
+#music, #video{
+	-moz-transition:1s ease;
+	-ms-transition:1s ease;
+	-webkit-transition:1s ease;
+	-o-transition:1s ease;
+
 	backface-visibility:hidden;
 }
 
-#videoSelection{
-	text-align: center;
-	padding:10px;
-	overflow-x: hidden;
-	overflow-y: scroll;
+#video{
+	width:50%;
+	height:100%;
+	-moz-transform:rotateY(180deg);
 }
+
+
 
 #labels{
 	text-align: center;
@@ -58,11 +54,16 @@ html, body{
 	margin:0;
 }
 
-#musicSelection{
+#musicSelection, #videoSelection{
 	text-align: center;
 	padding:10px;
 	overflow-x: hidden;
 	overflow-y: scroll;
+	height:70%;
+}
+
+#player{
+	margin-left:50%;
 }
 
 #mainP{
