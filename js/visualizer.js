@@ -1,9 +1,6 @@
 var analyser, actx, canvas, source, dataArr, bars, draw;
 var audio = document.getElementById('audio');
-audio.src = './music-temp/EverythingSux.m4a';
-audio.controls = false;
-audio.loop = false;
-audio.autoplay = true;
+
 
 window.addEventListener('load',audioini, false);
 
@@ -21,7 +18,6 @@ vis();
 function vis(){
 
 	window.requestAnimationFrame(vis);
-	console.log(analyser);
 	dataArr = new Uint8Array(analyser.frequencyBinCount);
 	analyser.getByteFrequencyData(dataArr);
 	analyser.connect(actx.destination);
