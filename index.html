@@ -5,6 +5,7 @@
 		<meta charset="UTF-8">
 		<title>Music Player</title>
 		<link rel="stylesheet" type="text/css" href="css/main.css">
+		<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.css">
 		<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 	</head>
 
@@ -15,9 +16,9 @@
 			<div id="vClick" class="col-md-5"><h1>Videos</h1></div>
 			<div id="settings" class="col-md-2">Settings</div>
 		</div>
-		<div id="main" class="row">
+		<div id="main">
 
-			<div id="music" class="col-md-6">
+			<div id="music">
 				<div id="labels" class="row">
 					<div id="artist" class="col-md-4">
 						<h2>Artist</h2>
@@ -57,28 +58,26 @@
 					</div>
 				</div>
 
-				<div id="player" class="col-md-6">
-				<div id="mainP">
-				</div>
+				<div id="player">
+					<audio id="audio"></audio>
+				<canvas id="canvas">
+				</canvas>
 				<div id="controls" class="row">
 					<div id="backButton" class="col-md-3">
-						Back
 					</div>
 					<div id="playPause" class="col-md-6">
-						Play/pause
 					</div>
 					<div id="fwdButton" class="col-md-3">
-						forward
 					</div>
 				</div>
 				<div id="volume">
-					Volume Slider
 				</div>
 			</div>
 
 			</div>
 			<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
 			<script src="js/main.js"></script>
+			<script src="js/visualizer.js"></script>
 		</div>
 
 	</body>

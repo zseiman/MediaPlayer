@@ -1,7 +1,3 @@
-*{
-	margin:0;
-	padding:0;
-}
 
 html, body{
 	position:absolute;
@@ -11,7 +7,8 @@ html, body{
 
 #top-select{
 	position:fixed;
-	background-color:#777;
+	text-align: center;
+	background-color:#77f;
 	width:100%;
 	height:20%;
 	margin:0;
@@ -25,9 +22,9 @@ html, body{
 
 #music, #video, #player{
 	position:fixed;
-	background-color: #555;
+	background-color: #bbf;
 	height:100%;
-	padding:0;
+	width:50%;
 }
 
 #music, #video{
@@ -40,16 +37,17 @@ html, body{
 }
 
 #video{
-	width:50%;
-	height:100%;
 	-moz-transform:rotateY(180deg);
+	-ms-transform:rotateY(180deg);
+	-webkit-transform:rotateY(180deg);
+	-o-transform:rotateY(180deg);
 }
 
 
 
 #labels{
 	text-align: center;
-	background-color:#aaa;
+	background-color:#ff9;
 	height:10%;
 	margin:0;
 }
@@ -66,10 +64,10 @@ html, body{
 	margin-left:50%;
 }
 
-#mainP{
-	background-color:#666;
+canvas{
+	background-color: #000;
 	width:100%;
-	height:50%;
+	height:45%;
 }
 
 #controls{
@@ -78,8 +76,32 @@ html, body{
 	margin:0px;
 }
 
+#backButton, #playPause, #fwdButton{
+	height:100%;
+}
+
+#backButton{
+	background-image: url("../images/buttonbk.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#playPause{
+	background-image: url("../images/playPause.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
+#fwdButton{
+	background-image: url("../images/buttonfwd.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
+}
+
 #volume{
-	background-color:#777;
-	height:25%;
+	height:10%;
+	background-image:url("../images/sliderBackground.png");
+	background-size: 100% 100%;
+	background-repeat: no-repeat;
 }
 
