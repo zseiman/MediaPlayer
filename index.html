@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app ="media">
 
 	<head>
 		<meta charset="UTF-8">
@@ -30,27 +30,27 @@
 						<h2>Album</h2>
 					</div>
 				</div>
-				<div id="musicSelection" ng-controller="">
-						<div class="musicItem row" ng-repeat>
-							<div class="col-md-4">
-								{{artist}}
-							</div>
-							<div class="col-md-4">
-								{{song}}
-							</div>
-							<div class="col-md-4">
-								{{album}}
-							</div>
+				<div id="musicSelection" ng-controller="music">
+					<div class="musicItem row"ng-repeat="music in music">
+						<div class="col-md-4" >
+							{{music.artist}}
+						</div>
+						<div class="col-md-4">
+							{{music.song}}
+						</div>
+						<div class="col-md-4">
+							{{music.album}}
 						</div>
 					</div>
+				</div>
 			</div>
 
 			<div id="video">
 				<div id="labels" class="row">
 						<h2>Title</h2>
 				</div>
-					<div id="videoSelection" ng-controller="">
-						<div class="videoItem row" ng-repeat>
+					<div id="videoSelection" ng-controller="video">
+						<div class="videoItem row" ng-repeat="video in video">
 							<div class="col-md-12 musicItem">
 								{{VideoItem}}
 							</div>
@@ -76,6 +76,8 @@
 
 			</div>
 			<script src="https://code.jquery.com/jquery-1.12.3.min.js" integrity="sha256-aaODHAgvwQW1bFOGXMeX+pC4PZIPsvn2h1sArYOhgXQ=" crossorigin="anonymous"></script>
+			<script src="js/angular.js"></script>
+			<script src="js/aModule.js"></script>
 			<script src="js/main.js"></script>
 			<script src="js/player.js"></script>
 			<script src="js/visualizer.js"></script>
