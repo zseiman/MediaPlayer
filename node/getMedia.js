@@ -4,9 +4,12 @@ var aType = [".mp3"];
 
 var directory = {'folder':{'one':'0'}};
 
+var mainFolders = [];
+	var child;
+	var schild;
 
 
-
+/*
 var findData = function(url){
 
 fs.readdir(url,(err, folders)=>{
@@ -36,6 +39,63 @@ fs.readdir(url,(err, folders)=>{
 
 }
 
+
+*/
+
+var findData = function(url, mainFolders){
+
+	console.log("findData");
+
+	var firstLayer = function(url, mainFolders){
+		console.log("firstLayer");
+		fs.readdir(url,(err, out)=>{
+
+		if(err){
+			console.log(err);
+		}
+
+		else{
+			for(var i = 0; i < out.length;i++){
+					mainFolders.push(out[i]);
+					
+			}
+
+			var secondLayer = function(url, mainFolders){
+				console.log("secondlayer");
+				var children = [];
+				for(var j = 0; j < mainFolders.length;j++){
+					var lurl = url + "/" + mainFolders[j];
+					console.log(lurl);
+					fs.readdir(lurl,(err, out)=>{
+						if(err){
+							console.log(err);
+						}
+						else{
+							children.push(out[j]);
+							console.log(children[j]);
+						}
+
+
+					});
+
+				}
+
+			}
+
+			secondLayer(url, mainFolders);
+
+			}
+
+		});
+
+
+
+	}
+
+firstLayer(url, mainFolders);
+
+
+}
 
 
 
@@ -283,7 +343,7 @@ else{
 	response.writeHead(200, {'context-type':'text/html'});
 
 
-	findData(requestUrl);
+	findData(requestUrl, mainFolders);
 
 
 	/*fs.readFile(requestUrl, (err,data) => {
