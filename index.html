@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app ="media">
+<html>
 
 	<head>
 		<meta charset="UTF-8">
@@ -19,11 +19,11 @@
 			<div id="settingsMenu">
 
 				<div id="exit"></div>
-				<form action="/getJSON" method="POST">
+				
 
 					<input type="text" id="musicSource" placeholder="Music Source"></input>
 					<div id="sub">Find Music</div>
-				</form>
+				
 
 			</div>
 		</div>
@@ -42,18 +42,8 @@
 						<h2>Album</h2>
 					</div>
 				</div>
-				<div id="musicSelection" ng-controller="music">
-					<div class="musicItem row"ng-repeat="music in music">
-						<div class="col-md-4" >
-							{{music.artist}}
-						</div>
-						<div class="col-md-4">
-							{{music.song}}
-						</div>
-						<div class="col-md-4">
-							{{music.album}}
-						</div>
-					</div>
+				<div id="musicSelection">
+				
 				</div>
 			</div>
 
@@ -61,8 +51,8 @@
 				<div id="labels" class="row">
 						<h2>Title</h2>
 				</div>
-					<div id="videoSelection" ng-controller="video">
-						<div class="videoItem row" ng-repeat="video in video">
+					<div id="videoSelection">
+						<div class="videoItem row">
 							<div class="col-md-12 musicItem">
 								{{VideoItem}}
 							</div>
@@ -92,7 +82,6 @@
 			<script src="js/angular.js"></script>
 			<script src="js/aModule.js"></script>
 			<script src="js/main.js"></script>
-			<script src="js/player.js"></script>
 			<script src="js/visualizer.js"></script>
 		</div>
 

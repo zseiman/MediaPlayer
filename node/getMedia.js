@@ -1,88 +1,87 @@
 var fs = require("fs");
 var http = require("http");
-var aType = [".mp3"];
-
-var directory = {'folder':{'one':'0'}};
-
+var directory = {'folder':{'one':'0'},
+				'topLength': 0,
+				'midLength': 0,
+				'botLength': 0};
+var url;
 var mainFolders = [];
-	var child;
-	var schild;
 
 
-/*
-var findData = function(url){
 
-fs.readdir(url,(err, folders)=>{
 
-	if(err){
-		console.log(err);
-	}
+var pullData = function(response){
 
-	else{
-		for(var i = 0; i<folders.length;i++){
-			directory.folder.one[i] = folders[i];
-			console.log(directory.folder.one[i]);
-			fs.readdir(url + '/' + folders[i], (err, files)=>{
-				if(err){
-					console.log(err);
-				}
-				else{
-					for(var j = 0; j<files.length;j++){
-						console.log(files[j]);
-					}
-				}
-			});
+	fs.readFile("ref.txt", (err, out)=>{
+
+		if(err){
+			console.log(err);
 		}
-	}
+		else{
 
-})
+		response.writeHead(200, {'context-type':'text/html'});
+	 	response.write(out);
+	 	response.end();
+		
+
+		}
+
+	});
+
+}
+
+var thirdLayer = function(lurl, i, toplength, j, midlength, response){
+
+	fs.readdir(lurl,(err, out)=>{
+		if(err){
+			console.log(err);
+		}
+		else{
+			for(var k = 0; k < out.length;k++){
+				fs.appendFile("ref.txt",  lurl + "/" + out[k] + "|");
+			}
+
+			if(i + 1 === toplength && k === out.length){
+
+				pullData(response);
+			}
+		}
+	});
 
 }
 
 
-*/
+var secondLayer = function(lurl, i, toplength, response){
+	fs.readdir(lurl,(err, out)=>{
+		if(err){
+			console.log(err);
+		}
+		else{
+			directory.midLength = out.length;
+			for(var j = 0; j < out.length;j++){
 
-var findData = function(url, mainFolders){
+				thirdLayer(lurl + '/' + out[j], i, toplength, j, directory.midLength, response);
 
-	console.log("findData");
+			}
+		}
+	});
 
-	var firstLayer = function(url, mainFolders){
-		console.log("firstLayer");
+}
+
+
+var firstLayer = function(url, response){
 		fs.readdir(url,(err, out)=>{
-
 		if(err){
 			console.log(err);
 		}
 
 		else{
+			directory.topLength = out.length;
 			for(var i = 0; i < out.length;i++){
 					mainFolders.push(out[i]);
-					
+					secondLayer(url + '/' + out[i], i, directory.topLength, response);
 			}
 
-			var secondLayer = function(url, mainFolders){
-				console.log("secondlayer");
-				var children = [];
-				for(var j = 0; j < mainFolders.length;j++){
-					var lurl = url + "/" + mainFolders[j];
-					console.log(lurl);
-					fs.readdir(lurl,(err, out)=>{
-						if(err){
-							console.log(err);
-						}
-						else{
-							children.push(out[j]);
-							console.log(children[j]);
-						}
-
-
-					});
-
-				}
-
-			}
-
-			secondLayer(url, mainFolders);
 
 			}
 
@@ -92,9 +91,9 @@ var findData = function(url, mainFolders){
 
 	}
 
-firstLayer(url, mainFolders);
-
-
+var findData = function(url, response){
+fs.writeFile("ref.txt"," ");
+firstLayer(url, response);
 }
 
 
@@ -109,7 +108,7 @@ var writeResponse = function(response,requestUrl,request){
 //get url for user-selected directory and 
 //1.serve media file or
 //2.serve JSON file containing media information
-if(requestUrl === '/'){
+if(requestUrl === '/' || requestUrl === '' ){
 	
 	response.writeHead(200, {'context-type':'text/html'});
 	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/index.html', (err,data) => {
@@ -332,61 +331,29 @@ else if(requestUrl === '/images/sliderBackground.png'){
 		response.write(data);
 		response.end();
 
-	}});}
-
-
-
-
-
-
-else{
-	response.writeHead(200, {'context-type':'text/html'});
-
-
-	findData(requestUrl, mainFolders);
-
-
-	/*fs.readFile(requestUrl, (err,data) => {
-
-	if(err){
-		console.log(err);
 	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});*/}
-
-	/*else{
-
-		response.writeHead(200, {'context-type':'text/plain'});
-		findData(requestUrl);
-		response.end();
+	});
+}
 
 
-
-	}*/}
-
+else if(requestUrl !== "/music-temp/EverythingSux.m4a"){
 
 
-
-
-var find = function(url){
-
-//find media files in user-selected directory
+	findData(requestUrl, response);
 
 
 }
 
+else if(requestUrl === "/music-temp/EverythingSux.m4a"){
 
-var build = function(){
-
-//build JSON file
+	response.writeHead(200, {'context-type':'text/html'});
+	response.write("./music-temp/EverythingSux.m4a");
+	response.end();
 
 }
 
 
+};
 
 
 http.createServer((req, res) =>{

@@ -25,7 +25,6 @@ html, body{
 	-ms-transition:1s ease;
 	-webkit-transition:1s ease;
 	-o-transition:1s ease;
-
 }
 
 #exit{
@@ -71,6 +70,11 @@ html, body{
 	-o-transform:rotateY(180deg);
 }
 
+.musicElement{
+	background-color: #aaf;
+	width:100%;
+	height:10%;
+}
 
 
 #labels{
