@@ -8,44 +8,33 @@ var url = "";
 var audio = document.getElementById('audio');
 var type;
 var songs = [];
+var ref;
 
 
-var ids = function(i){
 
-	/*var id[i] = i;
+var listen = function(sound, index){
 
-	document.getElementById(id[i]).addEventListener('click', function(id[i]){
-		console.log(document.getElementById(id[i]));
-	});
-*/
+	//to add click listeners to each music element that plays song with associated url
+	//code from here
+	document.getElementById(index).addEventListener("click", function(){});
+
 
 }
 
-var listen = function(songs){
-	console.log('listen');
-	for(var i = 0; i < songs.length;i++){
+var put = function(sound, index){
 
-		
-		ids(i);
-	}
-}
+	//puts HTML elements for each song item
 
-var toPage = function(songs){
+	document.getElementById('musicSelection').innerHTML += '<div class="musicElement" id="' + index + '">' + sound + '</div>';
 
-
-	for(var i = 0; i <= songs.length;i++){
-
-		document.getElementById("musicSelection").innerHTML += "<div class='musicElement' id='" + i + "'>" + songs[i] + "</div><br />";
-
-		if(i === songs.length){
-			listen(songs);
-		}
-	}
+	listen(sound, index);
 
 }
 
 
 var sift = function(data){
+
+	//sorts playable media files
 
 	console.log("sift");
 	for(var i = 0; i < data.length;i++){
@@ -59,7 +48,7 @@ var sift = function(data){
 		}
 
 		if(i+1 === data.length){
-			toPage(songs);
+			data.forEach(put);
 		}
 	}
 
@@ -74,7 +63,6 @@ var dissect = function(data){
 
 // Player
 
-//Make file selectable from created JSON file
 audio.src = './music-temp/EverythingSux.m4a';
 
 //Interaction with player

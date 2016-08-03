@@ -92,24 +92,12 @@ var firstLayer = function(url, response){
 	}
 
 var findData = function(url, response){
-fs.writeFile("ref.txt"," ");
-firstLayer(url, response);
+	fs.writeFile("ref.txt"," ");
+	firstLayer(url, response);
 }
-
-
-
-
-
-
-
 
 var writeResponse = function(response,requestUrl,request){
 
-//get url for user-selected directory and 
-//1.serve media file or
-//2.serve JSON file containing media information
-if(requestUrl === '/' || requestUrl === '' ){
-	
 	response.writeHead(200, {'context-type':'text/html'});
 	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/index.html', (err,data) => {
 
@@ -344,10 +332,10 @@ else if(requestUrl !== "/music-temp/EverythingSux.m4a"){
 
 }
 
-else if(requestUrl === "/music-temp/EverythingSux.m4a"){
+else{
 
 	response.writeHead(200, {'context-type':'text/html'});
-	response.write("./music-temp/EverythingSux.m4a");
+	response.write("Error:Not allowed");
 	response.end();
 
 }

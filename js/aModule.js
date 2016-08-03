@@ -10,6 +10,7 @@ var media = angular.module("media", []);
 
 media.controller("music", function($scope){
 
-	$scope.music = [{artist:"Dead Kennedys", song:"Police Truck", album:"Give Me Convenience Or Give Me Death"}, {artist:"Metallica", song:"Creeping death", album:"Ride The Lightning"}];
+	$scope.music = [{artist:"Dead Kennedys", song:"Police Truck", album:"Give Me Convenience Or Give Me Death"},
+					{artist:"Metallica", song:"Creeping death", album:"Ride The Lightning"}];
 
 })
