@@ -96,12 +96,8 @@ var findData = function(url, response){
 	firstLayer(url, response);
 }
 
-var writeResponse = function(response,requestUrl,request){
-
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/index.html', (err,data) => {
-
-	if(err){
+var respond = function(err, data, response){
+if(err){
 		console.log(err);
 	}
 
@@ -109,239 +105,84 @@ var writeResponse = function(response,requestUrl,request){
 		response.write(data);
 		response.end();
 
-	}});}
-
-else if(requestUrl === '/css/main.css'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/css/main.css', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/css/reset.css'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/css/reset.css', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/css/bootstrap.css'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/css/bootstrap.css', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/js/jquery.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/jquery.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/js/settings.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/settings.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/js/angular.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/angular.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/js/aModule.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/aModule.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/js/main.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/main.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/js/player.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/player.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-	else if(requestUrl === '/js/visualizer.js'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/visualizer.js', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/images/buttonbk.png'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/buttonbk.png', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/images/playPause.png'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/playPause.png', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/images/buttonfwd.png'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/buttonfwd.png', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}});}
-
-else if(requestUrl === '/images/sliderBackground.png'){
-	
-	response.writeHead(200, {'context-type':'text/html'});
-	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/sliderBackground.png', (err,data) => {
-
-	if(err){
-		console.log(err);
-	}
-
-	else{
-		response.write(data);
-		response.end();
-
-	}
-	});
+	}	
 }
 
+var writeResponse = function(response,requestUrl,request){
 
-else if(requestUrl !== "/music-temp/EverythingSux.m4a"){
+if(requestUrl === "/"){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/index.html', (err,data)=>{respond(err, data, response)});}
 
+else if(requestUrl === '/css/main.css'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/css/main.css', (err,data)=>{respond(err, data, response)});}
 
-	findData(requestUrl, response);
+else if(requestUrl === '/css/reset.css'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/css/reset.css', (err,data)=>{respond(err, data, response)});}
 
+else if(requestUrl === '/css/bootstrap.css'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/css/bootstrap.css', (err,data)=>{respond(err, data, response)});}
 
+else if(requestUrl === '/js/jquery.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/jquery.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/js/settings.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/settings.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/js/angular.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/angular.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/js/aModule.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/aModule.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/js/main.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/main.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/js/player.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/player.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/js/visualizer.js'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/js/visualizer.js', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/images/buttonbk.png'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/buttonbk.png', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/images/playPause.png'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/playPause.png', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/images/buttonfwd.png'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/buttonfwd.png', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl === '/images/sliderBackground.png'){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile('C:/users/Zseiman/Documents/GitHub/MusicPlayer/images/sliderBackground.png', (err,data)=>{respond(err, data, response)});}
+
+else if(requestUrl.length > 60){
+	response.writeHead(200, {'context-type':'text/html'});
+	fs.readFile(requestUrl, (err,data)=>{respond(err, data, response)});
 }
 
 else{
-
-	response.writeHead(200, {'context-type':'text/html'});
-	response.write("Error:Not allowed");
-	response.end();
+	findData(requestUrl, response);
+}
 
 }
 
 
-};
+
 
 
 http.createServer((req, res) =>{

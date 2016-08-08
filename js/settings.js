@@ -13,11 +13,16 @@ var ref;
 
 
 var listen = function(sound, index){
-
+	console.log("listen");
 	//to add click listeners to each music element that plays song with associated url
 	//code from here
-	document.getElementById(index).addEventListener("click", function(){});
+	
+	document.getElementById(sound).addEventListener("click", function(){
 
+		audio.src = this.id;
+		audio.play();
+
+	});
 
 }
 
@@ -25,9 +30,7 @@ var put = function(sound, index){
 
 	//puts HTML elements for each song item
 
-	document.getElementById('musicSelection').innerHTML += '<div class="musicElement" id="' + index + '">' + sound + '</div>';
-
-	listen(sound, index);
+	document.getElementById('musicSelection').innerHTML += '<div class="musicElement" id="' + sound + '">' + sound + '</div>';
 
 }
 
@@ -41,14 +44,15 @@ var sift = function(data){
 
 		type = data[i].substr(data[i].length - 4, data[i].length);
 
-		if(type === ".mp3" || type === ".m4a" || type === ".wma"){
+		if(type === ".mp3" || type === ".m4a"){
 
 			songs.push(data[i]);
 				
 		}
 
 		if(i+1 === data.length){
-			data.forEach(put);
+			songs.forEach(put);
+			songs.forEach(listen);
 		}
 	}
 
@@ -62,8 +66,6 @@ var dissect = function(data){
 }
 
 // Player
-
-audio.src = './music-temp/EverythingSux.m4a';
 
 //Interaction with player
 audio.controls = false;
@@ -90,7 +92,7 @@ document.getElementById('playPause').addEventListener('click', musicSwitch);
 
 
 //open settings
-$("#settings").click(function(){$("#settingsMenu").css({ "margin-left":"84%"});});
+$("#settings").click(function(){$("#settingsMenu").css({ "margin-left":"80%"});});
 //close settings
 $("#exit").click(function(){$("#settingsMenu").css({ "margin-left":"100%"});});
 
